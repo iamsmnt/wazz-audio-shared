@@ -3,7 +3,7 @@ Example usage of wazz_shared library
 
 This file demonstrates how to use the shared library components.
 Run this after installing the shared library:
-    pip install -e /path/to/shared-lib
+    pip install -e /path/to/wazz-audio-shared
 """
 
 from wazz_shared.config import get_shared_settings

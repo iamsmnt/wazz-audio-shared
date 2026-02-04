@@ -17,8 +17,8 @@ The shared library enables:
 Install the shared library in editable mode so changes are immediately reflected:
 
 ```bash
-# From the api-service or worker-service directory
-pip install -e ../shared-lib
+# From the wazz-audio-backend or worker-service directory
+pip install -e ../wazz-audio-shared
 ```
 
 ### For Production
@@ -26,14 +26,14 @@ pip install -e ../shared-lib
 Install as a regular package:
 
 ```bash
-pip install /path/to/shared-lib
+pip install /path/to/wazz-audio-shared
 ```
 
 Or add to your `requirements.txt`:
 
 ```txt
-# In api-service/requirements.txt or worker-service/requirements.txt
--e ../shared-lib
+# In wazz-audio-backend/requirements.txt or worker-service/requirements.txt
+-e ../wazz-audio-shared
 ```
 
 ## Components
@@ -210,7 +210,7 @@ def get_job(job_id: str):
 ## Project Structure
 
 ```
-shared-lib/
+wazz-audio-shared/
 ├── setup.py                    # Package installation configuration
 ├── requirements.txt            # Package dependencies
 ├── README.md                   # This file
@@ -283,7 +283,7 @@ CELERY_RESULT_BACKEND=db+postgresql://postgres:postgres@localhost:5432/whazz_aud
 ## Usage in API Service
 
 ```python
-# api-service/main.py
+# wazz-audio-backend/main.py
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
 from wazz_shared import get_db, get_shared_settings
@@ -361,7 +361,7 @@ def process_audio_task(job_id: str):
 ### Running Tests
 
 ```bash
-cd shared-lib
+cd wazz-audio-shared
 pip install -e ".[dev]"
 pytest
 ```
@@ -379,7 +379,7 @@ If you're migrating from a monolithic backend:
 
 1. **Install shared library** in both services:
    ```bash
-   pip install -e ../shared-lib
+   pip install -e ../wazz-audio-shared
    ```
 
 2. **Update imports** in API service:
@@ -432,7 +432,7 @@ If you're migrating from a monolithic backend:
 
 ```bash
 # Reinstall in editable mode
-pip install -e ../shared-lib --force-reinstall
+pip install -e ../wazz-audio-shared --force-reinstall
 ```
 
 ### Database Connection Issues

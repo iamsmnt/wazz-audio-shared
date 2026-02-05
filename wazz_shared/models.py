@@ -110,6 +110,9 @@ class AudioProcessingJob(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     guest_id = Column(String, nullable=True)  # For guest users
 
+    # Project
+    project_name = Column(String, nullable=True)  # User-editable name, defaults to original_filename
+
     # File information
     filename = Column(String, nullable=False)
     original_filename = Column(String, nullable=False)

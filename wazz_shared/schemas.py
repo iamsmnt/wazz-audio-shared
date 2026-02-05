@@ -136,6 +136,30 @@ class AudioJobStatusResponse(BaseModel):
         from_attributes = True
 
 
+class ProjectResponse(BaseModel):
+    """Project list item (user-facing audio job summary)"""
+
+    job_id: str
+    project_name: Optional[str] = None
+    filename: str
+    original_filename: str
+    status: str
+    processing_type: Optional[str] = None
+    created_at: datetime
+    duration: Optional[float] = None
+    file_size: Optional[float] = None
+    file_format: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+
+class ProjectRenameRequest(BaseModel):
+    """Schema for renaming a project"""
+
+    project_name: str = Field(..., min_length=1, max_length=255)
+
+
 # Admin Schemas
 
 class AdminUserResponse(UserResponse):

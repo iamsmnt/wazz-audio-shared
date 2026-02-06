@@ -82,6 +82,7 @@ class SharedSettings(BaseSettings):
     # Audio Processing Settings
     # =========================================================================
     clearvoice_model_name: str = "MossFormer2_SE_48K"
+    clearvoice_separation_model_name: str = "MossFormer2_SS_16K"
     processing_timeout_seconds: int = 3600  # 1 hour max
 
     # Worker settings

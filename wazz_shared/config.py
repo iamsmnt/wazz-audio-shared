@@ -117,6 +117,7 @@ class SharedSettings(BaseSettings):
     smtp_from_email: str = ""
     frontend_url: str = "http://localhost:5173"
     require_email_verification: bool = True
+    password_reset_token_expire_hours: int = 1
 
     # =========================================================================
     # Logging Settings

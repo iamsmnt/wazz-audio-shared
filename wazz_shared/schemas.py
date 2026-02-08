@@ -72,6 +72,38 @@ class MessageResponse(BaseModel):
     message: str
 
 
+class ForgotPasswordRequest(BaseModel):
+    """Schema for forgot password request"""
+
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    """Schema for reset password with token"""
+
+    token: str
+    new_password: str = Field(..., min_length=8, max_length=72)
+
+    @field_validator('new_password')
+    @classmethod
+    def validate_password_bytes(cls, v: str) -> str:
+        if len(v.encode('utf-8')) > 72:
+            raise ValueError('Password cannot be longer than 72 bytes when encoded in UTF-8')
+        return v
+
+
+class VerifyEmailRequest(BaseModel):
+    """Schema for email verification"""
+
+    token: str
+
+
+class ResendVerificationRequest(BaseModel):
+    """Schema for resending verification email"""
+
+    email: EmailStr
+
+
 class GuestTokenResponse(BaseModel):
     """Schema for guest token response"""
 

@@ -18,6 +18,7 @@ setup(
         "psycopg2-binary>=2.9.0",
         "boto3>=1.26.0",  # For S3/MinIO
         "python-dotenv>=1.0.0",
+        "pika>=1.3.0",  # For RabbitMQ event publishing
     ],
     extras_require={
         "dev": [

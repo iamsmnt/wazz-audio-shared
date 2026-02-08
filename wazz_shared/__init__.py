@@ -11,6 +11,16 @@ from .config import SharedSettings, get_shared_settings
 from .database import Base, get_db, SessionLocal, engine
 from .models import User, AudioProcessingJob, GuestSession, UserUsageStats, TokenBlacklist
 from . import usage_tracking
+from .events import (
+    EventPublisher,
+    BaseEvent,
+    UserRegisteredEvent,
+    UserVerifiedEvent,
+    UserPasswordResetRequestedEvent,
+    USER_REGISTERED,
+    USER_VERIFIED,
+    USER_PASSWORD_RESET_REQUESTED,
+)
 
 __all__ = [
     "SharedSettings",
@@ -25,4 +35,12 @@ __all__ = [
     "UserUsageStats",
     "TokenBlacklist",
     "usage_tracking",
+    "EventPublisher",
+    "BaseEvent",
+    "UserRegisteredEvent",
+    "UserVerifiedEvent",
+    "UserPasswordResetRequestedEvent",
+    "USER_REGISTERED",
+    "USER_VERIFIED",
+    "USER_PASSWORD_RESET_REQUESTED",
 ]
